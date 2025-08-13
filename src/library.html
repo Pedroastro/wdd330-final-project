@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What to Watch</title>
+    <title>Library • What to Watch</title>
     <meta name="theme-color" content="#0f172a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,12 +12,12 @@
       rel="stylesheet"
     >
     <link rel="stylesheet" href="/css/styles.css">
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/library.js"></script>
   </head>
   <body>
     <header class="site-header">
       <div class="container header-content">
-        <div class="branding">
+        <a class="branding" href="/index.html" aria-label="Go home">
           <img
             src="/logo-what-to-watch.png"
             alt="What to Watch logo"
@@ -26,13 +26,13 @@
             height="28"
           >
           <span class="brand-name">What to Watch</span>
-        </div>
+        </a>
         <nav class="header-actions">
           <a
-            href="/library.html"
+            href="/index.html"
             class="icon-button"
-            aria-label="View recents and favorites"
-            title="Recents & Favorites"
+            aria-label="Back to search"
+            title="Back to search"
           >
             <svg
               class="icon"
@@ -44,10 +44,11 @@
               aria-hidden="true"
             >
               <path
-                d="M5 3h10a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2Z"
+                d="M15 18l-6-6 6-6"
                 stroke="currentColor"
                 stroke-width="1.5"
-                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
           </a>
@@ -56,77 +57,13 @@
     </header>
 
     <main id="app">
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-copy">
-            <h1>Find your next movie</h1>
-            <p class="subtitle">
-              Search the TMDB catalog and get recommendations by genre.
-            </p>
-          </div>
-
-          <form
-            id="search-form"
-            class="search-bar"
-            role="search"
-            aria-label="Search movies"
-            autocomplete="off"
-          >
-            <div class="search-input-wrapper">
-              <svg
-                class="search-icon"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm9-1-4.35-4.35"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <input
-                id="search-input"
-                name="query"
-                type="search"
-                placeholder="Search for a movie..."
-                aria-label="Movie title"
-              >
-            </div>
-            <button id="search-button" type="submit" class="btn-primary">
-              Search
-            </button>
-          </form>
-
-          <div class="quick-genres" aria-live="polite">
-            <div class="chips" id="genre-chips">
-              <button class="chip" data-genre="28">Action</button>
-              <button class="chip" data-genre="35">Comedy</button>
-              <button class="chip" data-genre="18">Drama</button>
-              <button class="chip" data-genre="27">Horror</button>
-              <button class="chip" data-genre="10749">Romance</button>
-              <button class="chip" data-genre="16">Animation</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="results-section">
         <div class="container">
           <header class="section-header">
-            <h2 id="results-title">Results</h2>
-            <span
-              class="results-count"
-              id="results-count"
-              aria-live="polite"
-            ></span>
+            <h2>Recently viewed</h2>
           </header>
-          <div id="results-grid" class="grid">
-            <div class="empty-state" id="empty-state">
+          <div id="recent-grid" class="grid">
+            <div class="empty-state" id="recent-empty">
               <svg
                 class="empty-illustration"
                 width="120"
@@ -165,8 +102,7 @@
                   opacity=".1"
                 />
               </svg>
-              <p>Start typing to search for movies.</p>
-              <small class="muted">Powered by TMDB</small>
+              <p>No recent movies yet.</p>
             </div>
           </div>
         </div>
@@ -175,10 +111,10 @@
       <section class="recommendations-section">
         <div class="container">
           <header class="section-header">
-            <h2>Recommended by genre</h2>
+            <h2>Favorites</h2>
           </header>
-          <div id="recommendations-grid" class="grid">
-            <div class="empty-state" id="recs-empty-state">
+          <div id="favorites-grid" class="grid">
+            <div class="empty-state" id="fav-empty">
               <svg
                 class="empty-illustration"
                 width="120"
@@ -217,8 +153,7 @@
                   opacity=".1"
                 />
               </svg>
-              <p>Select a genre to see recommendations.</p>
-              <small class="muted">Powered by TMDB</small>
+              <p>No favorites yet.</p>
             </div>
           </div>
         </div>
