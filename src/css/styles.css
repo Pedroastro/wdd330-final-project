@@ -361,10 +361,6 @@ body {
     .heart-fill {
       display: none;
     }
-    .heart-outline {
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
     &[aria-pressed='true'] {
       .heart-fill {
         display: inline;
@@ -408,8 +404,6 @@ body {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  clip-path: inset(50%);
-  clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
@@ -421,6 +415,23 @@ body {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 16px;
+}
+
+@media (max-width: 719px) {
+  .detail-hero {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .detail-poster-wrap {
+    justify-self: center;
+    max-width: 200px;
+  }
+  
+  .detail-overview {
+    order: 1;
+    margin-top: 16px;
+  }
 }
 
 @media (min-width: 720px) {
